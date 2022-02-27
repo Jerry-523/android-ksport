@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#000',
     borderWidth: 3,
-    borderStyle: 'Solid',
+    borderStyle: 'solid',
   },
   
 }

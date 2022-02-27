@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#000',
     borderWidth: 3,
-    borderStyle: 'Solid',
+    borderStyle: 'solid',
   },
   head: { height: 40, backgroundColor: 'green' },
   wrapper: { flexDirection: 'row', backgroundColor: 'grey'},

@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: '#000',
     borderWidth: 3,
-    borderStyle: 'Solid',
+    borderStyle: 'solid',
   },
     wrapper: { flexDirection: 'row', backgroundColor: '#434343'},
     row: { height: 28 },

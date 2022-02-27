@@ -79,7 +79,7 @@ export default function Cadastro({navigation}){
           placeholder="Passeword:"
           onChangeText={value => setPasseword(value)}
           secureTextEntry={true}
-          returnKeyType="feito"
+          returnKeyType="done"
           errorMessage={errorPasseword}
           />
 

@@ -10,7 +10,7 @@ import { StyleSheet } from "react-native";
       justifyContent: "center",
       borderColor: "#000",
       borderWidth: 3,
-      borderStyle: "Solid"
+      borderStyle: "solid"
     },
   });
 
@@ -20,7 +20,7 @@ import { StyleSheet } from "react-native";
     }
   });
 
-
+export default styles;
 
   
 

@@ -39,14 +39,14 @@ export default function Login({navigation}){
           leftIcon={{ type: 'font-awesome', name: 'envelope'}}
           onChangeText={value => setEmail(value)}
           keyboardType="email-address"
-          returnKeyType="feito"
+          returnKeyType="done"
           />
         <Input
           placeholder="Sua senha"
           leftIcon={{ type: 'font-awesome', name: 'lock', size:35}}
           onChangeText={value => setPassword(value)}
           secureTextEntry={true}
-          returnKeyType="feito"
+          returnKeyType="done"
           />
         <Button
          icon={
@@ -95,6 +95,6 @@ const specificStyle = StyleSheet.create({
       justifyContent: "center",
       borderColor: "#000",
       borderWidth: 3,
-      borderStyle: "Solid"
+      borderStyle: "solid"
     },
   });
