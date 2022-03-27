@@ -1,6 +1,7 @@
 export interface Team {
   id: string;
   name: string;
+  shortName: string;
 }
 
 export interface Tournament {
@@ -31,27 +32,68 @@ export interface Classification {
 
 export interface Match {
   tournamentId: string;
-  homeStats: string;
-  awayStats: string;
+  homeStats: MatchStats;
+  awayStats: MatchStats;
   location: string;
+  date: Date;
+  roundDesignation: string;
+  /**
+   * Árbitro
+   */
+  referee: string;
+  gameStatus: "Decorring" | "Endded" | "Not started";
+  gameTime?: number;
 }
 
-/**
- * Estatísticas do jogo
- */
 export interface MatchStats {
   team: Team;
   gols: number;
 }
 
+/**
+ * Estatísticas do jogo
+ */
 export const teams: Team[] = [
   {
     id: "1",
     name: "Sporting Clube da Praia",
+    shortName: "Sporting Praia",
   },
   {
     id: "2",
     name: "Grémio Desportivo Nhagar",
+    shortName: "Gremio Nhagar",
+  },
+  {
+    id: "3",
+    name: "Académica de Tarrafal",
+    shortName: "Acad. Tarrafal",
+  },
+  {
+    id: "4",
+    name: "Associação de Futebol de Juntus",
+    shortName: "AssoJuventus",
+  },
+];
+
+export const matchs: Match[] = [
+  {
+    tournamentId: "1",
+    homeStats: {
+      team: teams[1],
+      gols: 0,
+    },
+
+    awayStats: {
+      team: teams[0],
+      gols: 0,
+    },
+
+    date: new Date(2022, 4, 1, 18, 45),
+    location: "Estádio Nacional",
+    roundDesignation: "Jornada 1",
+    referee: "Jão Fortes",
+    gameStatus: "Decorring",
   },
 ];
 
@@ -72,6 +114,26 @@ export const tournaments: Tournament[] = [
       },
       {
         team: teams[1],
+        points: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
+        goalsScored: 0,
+        goalsSuffered: 0,
+        goalsDifference: 0,
+      },
+      {
+        team: teams[2],
+        points: 0,
+        wins: 0,
+        draws: 0,
+        losses: 0,
+        goalsScored: 0,
+        goalsSuffered: 0,
+        goalsDifference: 0,
+      },
+      {
+        team: teams[3],
         points: 0,
         wins: 0,
         draws: 0,

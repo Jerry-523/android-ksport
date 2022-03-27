@@ -9,6 +9,7 @@ import {
   Table,
   TableWrapper,
 } from "react-native-table-component";
+import { DataTable } from "react-native-paper";
 
 interface Props {
   tournament: TournamentMinimal;
@@ -33,37 +34,95 @@ export const Classificacao: FC<Props> = (props) => {
         {!tournament ? (
           <Text>Carregando</Text>
         ) : (
-          <Table borderStyle={{ borderWidth: 2 }}>
-            <Row
-              data={["Equipa", "P", "V", "D", "E", "GM", "GS", "DG"]}
-              style={styles.head}
-              textStyle={styles.text}
-              flexArr={[2]}
-            />
-            <TableWrapper style={styles.wrapper}>
-              {tournament.classifications.map((row) => {
-                return (
-                  <Row
-                    data={[
-                      row.team.name,
-                      row.points,
-                      row.wins,
-                      row.draws,
-                      row.losses,
-                      row.goalsScored,
-                      row.goalsSuffered,
-                      row.goalsDifference,
-                    ]}
-                    flexArr={[2]}
-                    style={styles.row}
-                    textStyle={styles.text}
-                  />
-                );
-              })}
-            </TableWrapper>
-          </Table>
+          <DataTable>
+            <DataTable.Header
+              style={{
+                borderTopWidth: 1,
+                borderTopColor: "rgb(200, 200, 200)",
+                backgroundColor: "rgb(250, 100, 100)",
+              }}
+            >
+              <DataTable.Title
+                style={{
+                  borderRightWidth: 1,
+                  borderRightColor: "rgb(200, 200, 200)",
+                  flex: 4,
+                }}
+              >
+                <Text style={{ color: "rgb(10,10,10)" }}>Equipa</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                <Text style={{ color: "rgb(10,10,10)" }}>Pts</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                <Text style={{ color: "rgb(10,10,10)" }}>V</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                {" "}
+                <Text style={{ color: "rgb(10,10,10)" }}>E</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                {" "}
+                <Text style={{ color: "rgb(10,10,10)" }}>D</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                {" "}
+                <Text style={{ color: "rgb(10,10,10)" }}>GM</Text>
+              </DataTable.Title>
+              <DataTable.Title style={columnStyle}>
+                {" "}
+                <Text style={{ color: "rgb(10,10,10)" }}>GS</Text>
+              </DataTable.Title>
+              <DataTable.Title style={{ ...columnStyle, borderRightWidth: 0 }}>
+                {" "}
+                <Text style={{ color: "rgb(10,10,10)" }}>DG</Text>
+              </DataTable.Title>
+            </DataTable.Header>
+
+            {tournament.classifications.map((classification, index) => {
+              return (
+                <DataTable.Row
+                  style={{
+                    backgroundColor: index % 2 ? "#DDD" : "#FFF",
+                    opacity: 0.8,
+                  }}
+                  key={index}
+                >
+                  <DataTable.Cell style={{ ...columnStyle, flex: 4 }}>
+                    {classification.team.shortName}
+                  </DataTable.Cell>
+                  <DataTable.Cell style={columnStyle} numeric>
+                    {classification.points}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric style={columnStyle}>
+                    {classification.wins}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric style={columnStyle}>
+                    {classification.draws}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric style={columnStyle}>
+                    {classification.losses}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric style={columnStyle}>
+                    {classification.goalsScored}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric style={columnStyle}>
+                    {classification.goalsSuffered}
+                  </DataTable.Cell>
+                  <DataTable.Cell numeric>
+                    {classification.goalsDifference}
+                  </DataTable.Cell>
+                </DataTable.Row>
+              );
+            })}
+          </DataTable>
         )}
       </ImageBackground>
     </View>
   );
+};
+
+const columnStyle = {
+  borderRightWidth: 1,
+  borderRightColor: "rgb(200, 200, 200)",
 };

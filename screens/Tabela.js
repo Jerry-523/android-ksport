@@ -164,7 +164,9 @@ export default Tabela = () => {
         <Drawer.Screen
           name={tournament.name}
           key={tournament.id}
-          component={() => <Classificacao tournament={tournament} />}
+          children={() => {
+            return <Classificacao tournament={tournament} />;
+          }}
         />
       ))}
       <Drawer.Screen name="Taça de Cabo Verde" component={TacaCaboVerde} />
