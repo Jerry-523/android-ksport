@@ -12,22 +12,14 @@ import {
 import { DataTable } from "react-native-paper";
 
 interface Props {
-  tournament: TournamentMinimal;
+  tournament: Tournament;
 }
 
 export const image = {
   uri: "https://i.pinimg.com/originals/7c/68/fc/7c68fca262a9ac18cd2b21461d00889a.jpg",
 };
 
-export const Classificacao: FC<Props> = (props) => {
-  const [tournament, setTournament] = useState<Tournament | null>(null);
-  useEffect(() => {
-    const getTournament = async () => {
-      const tournament = await getTournamentData(props.tournament.id);
-      setTournament(tournament);
-    };
-    getTournament();
-  }, []);
+export const Classificacao: FC<Props> = ({ tournament }) => {
   return (
     <View style={styles.container}>
       <ImageBackground source={image} resizeMode="cover" style={styles.image}>
@@ -122,7 +114,7 @@ export const Classificacao: FC<Props> = (props) => {
   );
 };
 
-const columnStyle = {
+export const columnStyle = {
   borderRightWidth: 1,
   borderRightColor: "rgb(200, 200, 200)",
 };

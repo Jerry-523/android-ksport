@@ -76,7 +76,7 @@ export const teams: Team[] = [
   },
 ];
 
-export const matchs: Match[] = [
+export const matches: Match[] = [
   {
     tournamentId: "1",
     homeStats: {
@@ -90,6 +90,60 @@ export const matchs: Match[] = [
     },
 
     date: new Date(2022, 4, 1, 18, 45),
+    location: "Estádio Nacional",
+    roundDesignation: "Jornada 1",
+    referee: "Jão Fortes",
+    gameStatus: "Decorring",
+  },
+  {
+    tournamentId: "1",
+    homeStats: {
+      team: teams[2],
+      gols: 0,
+    },
+
+    awayStats: {
+      team: teams[0],
+      gols: 0,
+    },
+
+    date: new Date(2022, 4, 1, 18, 45),
+    location: "Estádio Nacional",
+    roundDesignation: "Jornada 1",
+    referee: "Jão Fortes",
+    gameStatus: "Decorring",
+  },
+  {
+    tournamentId: "1",
+    homeStats: {
+      team: teams[1],
+      gols: 0,
+    },
+
+    awayStats: {
+      team: teams[3],
+      gols: 0,
+    },
+
+    date: new Date(2022, 4, 5, 18, 45),
+    location: "Estádio Nacional",
+    roundDesignation: "Jornada 1",
+    referee: "Jão Fortes",
+    gameStatus: "Decorring",
+  },
+  {
+    tournamentId: "1",
+    homeStats: {
+      team: teams[0],
+      gols: 0,
+    },
+
+    awayStats: {
+      team: teams[1],
+      gols: 0,
+    },
+
+    date: new Date(2022, 4, 7, 18, 45),
     location: "Estádio Nacional",
     roundDesignation: "Jornada 1",
     referee: "Jão Fortes",
@@ -179,4 +233,15 @@ export const getTournamentData = async (
   )[0];
 
   return torneio;
+};
+
+export const getTournamentMatches = async (
+  tournamentId: string
+): Promise<Match[]> => {
+  await wait(1000);
+
+  const tournamentMatches = matches.filter(
+    (match) => match.tournamentId === tournamentId
+  );
+  return tournamentMatches;
 };

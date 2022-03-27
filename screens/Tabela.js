@@ -15,6 +15,7 @@ import {
 } from "react-native-table-component";
 import { Classificacao } from "./Classificacao";
 import { tournaments } from "../data/data";
+import { TournamentView } from "./TournamentView";
 
 const Drawer = createDrawerNavigator();
 export const image = {
@@ -165,7 +166,7 @@ export default Tabela = () => {
           name={tournament.name}
           key={tournament.id}
           children={() => {
-            return <Classificacao tournament={tournament} />;
+            return <TournamentView tournament={tournament} />;
           }}
         />
       ))}
