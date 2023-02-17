@@ -1,3 +1,5 @@
+![Screenshot_20230217-205313~2](https://user-images.githubusercontent.com/92488227/219802035-c1dc46b5-0a1c-49b7-9be3-c33f8a728de8.png)
+![Screenshot_20230217-205242~2](https://user-images.githubusercontent.com/92488227/219802082-84802a11-24c9-417e-a619-444c28992bbf.png)
 # android-ksport é um projecto escrito em react-native
  frontend ksport
 As imagens usado nos backgrounds nao foram baixados.
